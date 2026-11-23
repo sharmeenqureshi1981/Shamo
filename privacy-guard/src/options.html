@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Guard settings</title>
+  <style>
+    body { font: 14px/1.5 system-ui, sans-serif; max-width: 620px; margin: 24px auto; padding: 0 16px; color: #1a1a1a; background: #fff; }
+    h1 { font-size: 20px; } h2 { font-size: 16px; margin-top: 28px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 6px 0; border-bottom: 1px solid #eee; }
+    select, textarea { font: inherit; }
+    textarea { width: 100%; min-height: 110px; box-sizing: border-box; }
+    .muted { color: #666; }
+    #saved { color: #1a7f37; margin-left: 8px; opacity: 0; transition: opacity .2s; }
+    button { font: inherit; padding: 6px 14px; }
+    @media (prefers-color-scheme: dark) { body { background: #1c1c1c; color: #eee; } td { border-color: #333; } .muted { color: #aaa; } }
+  </style>
+</head>
+<body>
+  <h1>Privacy Guard settings</h1>
+  <p class="muted">Choose what happens when each kind of data is found.
+    <b>Block</b>: must be redacted before sending. <b>Redact</b>: replaced with a placeholder like [EMAIL_1].
+    <b>Warn</b>: flagged, left as-is. <b>Off</b>: ignored.</p>
+
+  <h2>Rules</h2>
+  <table id="rules"></table>
+
+  <h2>Your private terms</h2>
+  <p class="muted">One per line: your name, family members, clients, employer, address lines.
+    These are always redacted. Pattern rules can't spot names, so this list matters.</p>
+  <textarea id="terms" placeholder="Jane Smith&#10;Acme Ltd&#10;12 Rose Lane"></textarea>
+
+  <p><button id="save">Save</button><span id="saved">Saved</span></p>
+
+  <script src="detectors.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

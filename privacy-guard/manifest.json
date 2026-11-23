@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Privacy Guard for AI",
+  "version": "0.1.0",
+  "description": "Checks what you type into AI chats before it's sent. Flags and redacts card numbers, bank details, passwords and personal data — all locally.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://www.perplexity.ai/*",
+        "https://chat.mistral.ai/*",
+        "https://chat.deepseek.com/*"
+      ],
+      "js": ["src/detectors.js", "src/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "Privacy Guard",
+    "default_popup": "src/popup.html"
+  },
+  "options_page": "src/options.html"
+}

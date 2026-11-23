@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font: 14px/1.4 system-ui, sans-serif; width: 260px; margin: 0; padding: 14px; color: #1a1a1a; background: #fff; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    label { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .stat { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #eee; }
+    .muted { color: #777; font-size: 12px; margin-top: 10px; }
+    a { color: #1d4fb8; }
+    @media (prefers-color-scheme: dark) { body { background: #222; color: #eee; } .stat { border-color: #333; } .muted { color: #999; } a { color: #8fb0ff; } }
+  </style>
+</head>
+<body>
+  <h1>Privacy Guard</h1>
+  <label><input type="checkbox" id="enabled"> Protection on</label>
+  <div class="stat"><span>Messages flagged</span><b id="checks">0</b></div>
+  <div class="stat"><span>Redacted</span><b id="redacted">0</b></div>
+  <div class="stat"><span>Sent anyway</span><b id="sentAnyway">0</b></div>
+  <p class="muted">All checks run on this device. Only counts are stored, never the data itself.</p>
+  <a href="#" id="options">Settings</a>
+  <script src="detectors.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
